@@ -1,0 +1,34 @@
+smartcanteen/
+│
+├── app.py
+├── config.py
+├── requirements.txt
+│
+├── database/
+│   ├── connection.py
+│   └── schema.sql
+│
+├── models/
+│   ├── utilizador.py
+│   ├── refeicao.py
+│   ├── compra.py
+│   └── carregamento.py
+│
+├── services/
+│   └── compra_service.py
+│
+├── routes/
+│   ├── auth_routes.py
+│   ├── refeicao_routes.py
+│   └── relatorio_routes.py
+│
+├── templates/
+│   ├── base.html
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   ├── refeicoes.html
+│   └── relatorios.html
+│
+└── static/
+    └── style.css

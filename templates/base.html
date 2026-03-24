@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartCanteen</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">🍽 SmartCanteen</div>
+
+    <nav>
+        {% if session.get("user_id") %}
+            <a href="/dashboard">Dashboard</a>
+            <a href="/refeicoes">Refeições</a>
+            <a href="/relatorios">Relatórios</a>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+
+                    <div class="avatar">
+                        {{ session.get("nome").split()[0][0] }}
+                        {% if session.get("nome").split()|length > 1 %}
+                            {{ session.get("nome").split()[-1][0] }}
+                        {% endif %}
+                    </div>
+
+                    {{ session.get("nome") }} ⬇
+                </button>
+
+                <div class="dropdown-content">
+                    <p><strong>Tipo:</strong> {{ session.get("tipo") }}</p>
+                    <p><strong>Número:</strong> {{ session.get("numero") }}</p>
+                    <p>
+                        <strong>Saldo:</strong> 
+                        <span class="
+                            {% if session.get('saldo')|float > 0 %}
+                                saldo-positivo
+                            {% elif session.get('saldo') == 0 %}
+                                saldo-zero
+                            {% else %}
+                                saldo-negativo
+                            {% endif %}
+                        ">
+                            {{ session.get("saldo") }} €
+                        </span>
+                    </p>    
+                    <hr>
+                    <a href="/logout" class="logout-inside">Logout</a>
+                </div>
+            </div>
+        {% endif %}
+    </nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>

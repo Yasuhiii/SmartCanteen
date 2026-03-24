@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Refeições Mais Vendidas</h2>
+
+<div class="card">
+    <table>
+        <tr>
+            <th>Refeição</th>
+            <th>Total Vendido</th>
+        </tr>
+
+        {% for d in dados %}
+        <tr>
+            <td>{{ d.nome }}</td>
+            <td>{{ d.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

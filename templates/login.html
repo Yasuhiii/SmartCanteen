@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-container card">
+    <h2>Login</h2>
+
+    <form method="POST">
+        <label>Número</label>
+        <input type="text" name="numero" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <br>
+    <p>Não tem conta? <a href="/register">Criar conta</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Lista de Refeições</h2>
+
+<div class="card">
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Preço</th>
+            <th>Stock Diário</th>
+        </tr>
+
+        {% for r in refeicoes %}
+        <tr>
+            <td>{{ r.nome }}</td>
+            <td>{{ r.categoria }}</td>
+            <td>{{ r.preco }} €</td>
+            <td>{{ r.quantidade_diaria }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
